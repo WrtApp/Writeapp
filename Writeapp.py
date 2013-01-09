@@ -9,14 +9,16 @@ class WriteappCommand(sublime_plugin.TextCommand):
         user = settings.get("writeapp_user")
         pswd = settings.get("writeapp_pass")
 
-        # Run the plugin
+        # Read the current file
         file_path = self.view.file_name()
         f = open(file_path, 'r')
         data = f.read()
+
+        # Create and send the request
         params = urllib.urlencode({'title': 'ST2 Note', 'content': data, 'user': user, 'pass': pswd})
-        headers = {"Content-type": "application/x-www-form-urlencoded", "Accept": "text/plain"}
+        headers = {"Content-type": "application/x-www-form-urlencoded", "Accept": "text/plain", "Accept-Encoding": "identity"}
         conn = httplib.HTTPConnection("staging.writeapp.me:80")
-        conn.request("POST", "staging.writeapp.me/st2", params, headers)
+        conn.request("POST", "http://staging.writeapp.me/st2", params, headers)
         response = conn.getresponse()
         data2 = response.read()
         print data2

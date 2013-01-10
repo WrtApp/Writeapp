@@ -21,7 +21,9 @@ __Coming Soon__
 __Can't find the folder?__
 
 Windows:  `%APPDATA%\Sublime Text 2`
+
 Mac: ~/Library/Application Support/Sublime Text 2
+
 Linux: ~/.config/sublime-text-2
 
 ### Via Git
@@ -39,8 +41,8 @@ __Setup__
 Before you can use the plugin you have to add your username and password to your User settings file. Add the following lines to the JSON that may already be there:
 
 ```
-"writeapper_user": "bill",
-"writeapp_pass": "ih8ny1"
+"writeapper_user": "yourUsername",
+"writeapp_pass": "yourPassword"
 ```
 
 If your User Settings file is empty, use this code instead:

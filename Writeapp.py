@@ -1,7 +1,6 @@
 import sublime, sublime_plugin, subprocess, thread, os, urllib, urllib2, httplib
 # import sublime, sublime_plugin, subprocess, thread, os, functools, glob, fnmatch
 
-
 class WriteappCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         # Get settings

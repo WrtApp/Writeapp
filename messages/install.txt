@@ -1,0 +1,40 @@
+# Thanks for installing Write.app for Sublime Text!
+===================================================
+
+*Before you get started, be sure to edit your settings or the plugin will not work*
+
+## Setup
+===================================================
+
+1. Go to 'Preferences > Settings - User'
+
+2. In your settings file add the following lines to the list of settings already present:
+
+	"writeapper_user": "yourUsername",
+	"writeapp_pass": "yourPassword"
+
+Just replace the relevant parts with your username and your password and you're ready to go!
+
+## Usage
+===================================================
+
+To save your file to your Write.app account press 'alt+s' or right click anywhere inside the
+text you are editing and choose "Save to Write.app".
+
+To tell Write.app to add a title to your note or make your note public add the proper
+YAML front matter at the first line of your file. The following is an example of how this works:
+
+---
+title: My Great Note
+public: true
+---
+Note content goes here
+
+
+
+Please see http://github.com/WrtApp/Writeapp for more details on setup and usage.
+
+IMPORTANT NOTE:
+This version of the plugin can only save notes to Write.app that have already been saved
+on your computer. Future releases will have the ability to send notes to Write.app from
+saved or unsaved files.

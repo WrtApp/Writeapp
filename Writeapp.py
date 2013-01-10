@@ -1,8 +1,10 @@
-import sublime, sublime_plugin, subprocess, thread, os, urllib, urllib2, httplib
+import sublime, sublime_plugin, thread, urllib, urllib2, httplib
 # import sublime, sublime_plugin, subprocess, thread, os, functools, glob, fnmatch
 
 class WriteappCommand(sublime_plugin.TextCommand):
     def run(self, edit):
+        self.view.erase_status('writeapp')
+
         # Get settings
         settings = sublime.load_settings("Preferences.sublime-settings")
         user = settings.get("writeapp_user")
@@ -14,7 +16,8 @@ class WriteappCommand(sublime_plugin.TextCommand):
         data = f.read()
 
         # Create and send the request
-        params = urllib.urlencode({'title': 'ST2 Note', 'content': data, 'user': user, 'pass': pswd})
+        self.view.set_status('writeapp', 'Sending to Write.app')
+        params = urllib.urlencode({'content': data, 'user': user, 'pass': pswd})
         headers = {"Content-type": "application/x-www-form-urlencoded", "Accept": "text/plain", "Accept-Encoding": "identity"}
         conn = httplib.HTTPConnection("staging.writeapp.me:80")
         conn.request("POST", "http://staging.writeapp.me/st2", params, headers)
@@ -22,5 +25,9 @@ class WriteappCommand(sublime_plugin.TextCommand):
         data2 = response.read()
         print data2
         conn.close()
+
+        # Show success message in status bar
+        self.view.erase_status('writeapp')
+        self.view.set_status('writeapp', 'Saved to Write.app')
 
         # self.view.insert(edit, 0, user)

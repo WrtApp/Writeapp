@@ -73,7 +73,7 @@ public: true
 notebook: my notebook
 ---
 
-This is the content of mynote
+This is the content of my note
 
 ```
 
@@ -86,3 +86,11 @@ __Accepted YAML Front Matter Settings__
 *public*: Boolean. Accepts values "true" or "false". Defaults to "false" if empty or missing. Anything other than "true" or "false" results in the app turning it into a FALSE.
 
 More settings to come.
+
+__Checking if your note was saved__
+
+You don't  have to log into your account to see if your note was successfully saved. You can view the output from within Sublime Text. Here's how:
+
+1. Press `ctrl+\``
+
+This will open a pane that shows the output of the plugin. Open this before or after running the plugin to see a success or error message.

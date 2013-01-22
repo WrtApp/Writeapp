@@ -19,8 +19,8 @@ class WriteappCommand(sublime_plugin.TextCommand):
         self.view.set_status('writeapp', 'Sending to Write.app')
         params = urllib.urlencode({'content': data, 'user': user, 'pass': pswd})
         headers = {"Content-type": "application/x-www-form-urlencoded", "Accept": "text/plain", "Accept-Encoding": "identity"}
-        conn = httplib.HTTPConnection("staging.writeapp.me:80")
-        conn.request("POST", "http://staging.writeapp.me/st2", params, headers)
+        conn = httplib.HTTPSConnection("writeapp.me")
+        conn.request("POST", "https://writeapp.me/st2", params, headers)
         response = conn.getresponse()
         data2 = response.read()
         print data2
